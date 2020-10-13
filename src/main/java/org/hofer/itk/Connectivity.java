@@ -52,10 +52,11 @@ public class Connectivity {
 
     /**
      * Inserts a new record into the database
-     * @param date Date, the date the item was bought
+     *
+     * @param date        Date, the date the item was bought
      * @param description String, the description of the item
-     * @param value double, the price the item has on the invoice
-     * @param paid boolean, if it is paid already
+     * @param value       double, the price the item has on the invoice
+     * @param paid        boolean, if it is paid already
      */
     public void insertInvoice(Date date, String description, double value, boolean paid) {
         try {
@@ -64,8 +65,7 @@ public class Connectivity {
                 temp = 1;
             else
                 temp = 0;
-            String query = String.format(Locale.ROOT,"INSERT INTO `Invoice` (`date`, `description`, `value`, `paid) values('%s', '%s', '%f', '%d')", date.toString(), description, value, temp);
-            System.out.printf("%f",value);
+            String query = String.format(Locale.ROOT, "INSERT INTO `Invoice` (`date`, `description`, `value`, `paid`) values('%s', '%s', '%f', '%d')", date.toString(), description, value, temp);
             this.stmt.executeUpdate(query);
 
             System.out.println("Successfully inserted record!");
@@ -77,29 +77,45 @@ public class Connectivity {
 
     /**
      * Updates a record in the table. All parameters are required
-     * @param id int, id of the record
-     * @param date Date, the new Date of the invoice
+     *
+     * @param id          int, id of the record
+     * @param date        Date, the new Date of the invoice
      * @param description String, the new description of the invoice
-     * @param value double, the new value of the invoice
-     * @param paid boolean, the new status of the invoice (paid or not)
+     * @param value       double, the new value of the invoice
+     * @param paid        boolean, the new status of the invoice (paid or not)
      */
-    public void updateInvoice(int id, Date date, String description, double value, Boolean paid){
+    public void updateInvoice(int id, Date date, String description, double value, Boolean paid) {
 
-        try{
+        try {
             int temp;
-            if(paid)
-                temp=1;
+            if (paid)
+                temp = 1;
             else
-                temp=0;
-            String query = String.format(Locale.ROOT, "UPDATE `Invoice` SET `date` = '%s', `description` = '%s', `value` = '%f', `paid` = '%d' WHERE (`id` = '%d')", date.toString(), description,value, temp, id);
+                temp = 0;
+            String query = String.format(Locale.ROOT, "UPDATE `Invoice` SET `date` = '%s', `description` = '%s', `value` = '%f', `paid` = '%d' WHERE (`id` = '%d')", date.toString(), description, value, temp, id);
 
             this.stmt.executeUpdate(query);
 
             System.out.println("Successfully altered record!");
-        }catch(Exception e){ System.out.println(e);}
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
+    /**
+     * Deletes a record from the database, if it exists
+     * @param id int, the id of the record
+     */
     public void deleteInvoice(int id) {
+        try {
+            String query = String.format("DELETE FROM `Invoice` WHERE `id` = '%d'", id);
+
+            this.stmt.executeUpdate(query);
+
+            System.out.println("Successfully deleted record!");
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
     }
 

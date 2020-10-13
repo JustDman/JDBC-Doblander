@@ -22,7 +22,7 @@ Create a Java-program, which handles the connection to the database. Create four
 * [x] `public void showInvoices()`
 * [x] `public void insertInvoice(Date date, String description, double value, Boolean paid)`
 * [x] `public void updateInvoice(int id, Date date, String description, double value, Boolean paid)`
-* [ ] `public void deleteInvoice(int id)`
+* [x] `public void deleteInvoice(int id)`
 ### Task 4
 * [ ] Create classes based on a Database model, which only uses dummy data instead of connecting to the database
     - ![Picture of the ORM](/assets/orm.png)
