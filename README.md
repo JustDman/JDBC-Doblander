@@ -20,7 +20,7 @@ It is essential to use a Version Control (Git) for this exercise.
 ### Task 3
 Create a Java-program, which handles the connection to the database. Create four static methods to access the table
 * [x] `public void showInvoices()`
-* [ ] `public void insertInvoice(Date date, String description, double value, Boolean paid)`
+* [x] `public void insertInvoice(Date date, String description, double value, Boolean paid)`
 * [ ] `public void updateInvoice(int id, Date date, String description, double value, Boolean paid)`
 * [ ] `public void deleteInvoice(int id)`
 ### Task 4

@@ -1,6 +1,7 @@
 package org.hofer.itk;
 
 import java.sql.*;
+import java.util.Locale;
 
 public class Connectivity {
 
@@ -21,6 +22,7 @@ public class Connectivity {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             this.con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" + database, username, password);
+            this.stmt = this.con.createStatement();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -31,8 +33,8 @@ public class Connectivity {
      */
     public void showInvoices() {
         try {
-            this.stmt = this.con.createStatement();
-            this.rs = this.stmt.executeQuery("SELECT * FROM " + this.table);
+            String query = "SELECT * FROM " + this.table;
+            this.rs = this.stmt.executeQuery(query);
 
             while (this.rs.next()) {
                 int id = this.rs.getInt("id");
@@ -48,7 +50,21 @@ public class Connectivity {
         }
     }
 
-    public void insertInvoice(Date date, String description, double value, Boolean paid) {
+    public void insertInvoice(Date date, String description, double value, boolean paid) {
+        try {
+            int temp;
+            if (paid)
+                temp = 1;
+            else
+                temp = 0;
+            String query = String.format(Locale.ROOT,"INSERT INTO Invoice (date, description, value, paid) values('%s', '%s', '%f', '%d')", date.toString(), description, value, temp);
+            System.out.printf("%f",value);
+            stmt.executeUpdate(query);
+
+            System.out.println("Daten erfolgreich eingefügt");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
