@@ -17,7 +17,7 @@ It is essential to use a Version Control (Git) for this exercise.
 * [x] Fill the table with 3 dummy records
 ### Task 3
 * [ ] Create a Java-program, which handles the connection to the database. Create four static methods to access the table
-* [ ] `public static void showInvoices()`
+* [ ] `public static void showInvoices()`{:.java}
 * [ ] `public static void insertInvoice(Date date, String description, double value, Boolean paid)`
 * [ ] `public static void updateInvoice(int id, Date date, String description, double value, Boolean paid)`
 * [ ] `public static void deleteInvoice(int id)`
