@@ -14,7 +14,9 @@ public class App {
 
         Connectivity con = new Connectivity(DATABASE, USER, PASS, table);
         con.showInvoices();
-        con.insertInvoice(date, "shoes", 50.6, false);
+        System.out.println();
+        con.updateInvoice(4,date,"nike air",60.5,false);
+        con.showInvoices();
         con.closeConnection();
     }
 }
