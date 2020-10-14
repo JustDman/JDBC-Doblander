@@ -3,7 +3,7 @@ package org.hofer.itk;
 import java.sql.*;
 import java.util.Locale;
 
-public class SQLInvoiceDaoIImpl implements InvoiceDao{
+public class SQLInvoiceDaoImpl implements InvoiceDao{
 
     private Connection con;
     private Statement stmt;
@@ -17,7 +17,7 @@ public class SQLInvoiceDaoIImpl implements InvoiceDao{
      * @param password String, the password of the database
      * @param table String, the table to be connected to
      */
-    public SQLInvoiceDaoIImpl(String database, String username, String password, String table) {
+    public SQLInvoiceDaoImpl(String database, String username, String password, String table) {
         this.table = table;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
