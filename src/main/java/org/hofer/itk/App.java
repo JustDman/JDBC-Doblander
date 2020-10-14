@@ -1,4 +1,4 @@
-package org.hofer.itk.Connectivity;
+package org.hofer.itk;
 
 import java.sql.Date;
 
@@ -12,7 +12,7 @@ public class App {
 
         Date date = new Date(System.currentTimeMillis());
 
-        Connectivity con = new Connectivity(DATABASE, USER, PASS, table);
+        SQLInvoiceDaoIImpl con = new SQLInvoiceDaoIImpl(DATABASE, USER, PASS, table);
         con.showInvoices();
         con.insertInvoice(date, "shoes", 50.5, true);
         con.showInvoices();
@@ -21,6 +21,17 @@ public class App {
         con.deleteInvoice(4);
         con.showInvoices();
         con.closeConnection();
+
+        /*
+        InvoiceDaoImpl inv = new InvoiceDaoImpl();
+        inv.insertInvoice(date, "shoes", 50.5, true);
+        inv.insertInvoice(date, "nike air", 60.5, false);
+        inv.showInvoices();
+        inv.updateInvoice(2,date,"old pair", 30, true);
+        inv.showInvoices();
+        inv.deleteInvoice(2);
+        inv.showInvoices();
+         */
     }
 }
 

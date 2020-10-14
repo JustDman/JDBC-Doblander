@@ -1,9 +1,9 @@
-package org.hofer.itk.Connectivity;
+package org.hofer.itk;
 
 import java.sql.*;
 import java.util.Locale;
 
-public class Connectivity {
+public class SQLInvoiceDaoIImpl implements InvoiceDao{
 
     private Connection con;
     private Statement stmt;
@@ -17,7 +17,7 @@ public class Connectivity {
      * @param password String, the password of the database
      * @param table String, the table to be connected to
      */
-    public Connectivity(String database, String username, String password, String table) {
+    public SQLInvoiceDaoIImpl(String database, String username, String password, String table) {
         this.table = table;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,9 +28,10 @@ public class Connectivity {
         }
     }
 
-    /***
+    /**
      * Shows all Invoices from the table "Invoice"
      */
+    @Override
     public void showInvoices() {
         try {
             String query = "SELECT * FROM " + this.table;
@@ -58,6 +59,7 @@ public class Connectivity {
      * @param value       double, the price the item has on the invoice
      * @param paid        boolean, if it is paid already
      */
+    @Override
     public void insertInvoice(Date date, String description, double value, boolean paid) {
         try {
             int temp;
@@ -84,6 +86,7 @@ public class Connectivity {
      * @param value       double, the new value of the invoice
      * @param paid        boolean, the new status of the invoice (paid or not)
      */
+    @Override
     public void updateInvoice(int id, Date date, String description, double value, Boolean paid) {
 
         try {
@@ -106,6 +109,7 @@ public class Connectivity {
      * Deletes a record from the database, if it exists
      * @param id int, the id of the record
      */
+    @Override
     public void deleteInvoice(int id) {
         try {
             String query = String.format("DELETE FROM `Invoice` WHERE `id` = '%d'", id);
