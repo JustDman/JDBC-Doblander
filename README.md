@@ -33,4 +33,5 @@ Create a Java-program, which handles the connection to the database. Create four
 ### Task 5
 * [x] add a class `SQLInvoiceDaoIImp`, which implements the database connection
 
-> GitHub [@JustDman](https://github.com/JustDman)
+> GitHub [@JustDman](https://github.com/JustDman) &nbsp;&middot;&nbsp;
+> Dominic Hofer
