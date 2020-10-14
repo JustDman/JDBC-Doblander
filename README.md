@@ -25,9 +25,11 @@ Create a Java-program, which handles the connection to the database. Create four
 * [x] `public void deleteInvoice(int id)`
 ### Task 4
 * [ ] Create classes based on a Database model, which only uses dummy data instead of connecting to the database
-    - ![Picture of the ORM](/assets/orm.png)
-    - [Tip for the dao pattern:](http://www.informit.com/articles/article.aspx?p=1398621&seqNum=3)
-        - ![Tips for the pattern](/assets/dao_pattern.png)
+
+![Picture of the ORM](/assets/orm.png)
+   - [Tip for the dao pattern:](http://www.informit.com/articles/article.aspx?p=1398621&seqNum=3)
+   
+![Tips for the pattern](/assets/dao_pattern.png)
 ### Task 5
 * [ ] add a class `SQLInvoiceDaoIImp`, which implements the database connection
 
