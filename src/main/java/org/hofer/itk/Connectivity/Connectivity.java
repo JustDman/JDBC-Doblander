@@ -1,4 +1,4 @@
-package org.hofer.itk;
+package org.hofer.itk.Connectivity;
 
 import java.sql.*;
 import java.util.Locale;
